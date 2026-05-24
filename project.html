@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Project: InSight</title>
+  <meta name="description" content="InSight design evolution: three versions of a Braille reading fluency tool, from a hardware device to a phone-camera app." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navbar ──────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">In<span>Sight</span></a>
+      <ul class="navbar__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="project.html" class="nav-dropdown__toggle">The Project <span class="nav-dropdown__arrow">&#9660;</span></a>
+          <ul class="nav-dropdown__menu" role="list">
+            <li><a href="project.html">Overview</a></li>
+            <li><a href="v1.html">Version 1</a></li>
+            <li><a href="v2.html">Version 2</a></li>
+            <li><a href="v3.html">Version 3</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ───────────────────────────────────── -->
+  <header class="page-hero">
+    <div class="container">
+      <p class="page-hero__label">Design Evolution</p>
+      <h1 class="page-hero__title">Three Versions. One Goal.</h1>
+      <p class="page-hero__subtitle">
+        InSight evolved through three distinct versions — each shaped by student
+        testing, teacher feedback, and a push to give more granular reading insight.
+      </p>
+    </div>
+  </header>
+
+  <!-- ── Version Cards ────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">The Versions</p>
+      <h2 class="section-title">From prototype to app</h2>
+      <p class="section-subtitle">
+        Click any version to see its full breakdown, how it works,
+        and what it taught us.
+      </p>
+
+      <div class="version-cards">
+
+        <!-- V1 -->
+        <a href="v1.html" class="version-card reveal" style="text-decoration:none; color:inherit;">
+          <img src="assets/V1_Design.png" alt="Version 1 design diagram" class="version-card__img" />
+          <div class="version-card__header">
+            <div class="version-card__num">Version 1</div>
+            <div class="version-card__title">The Line Reader</div>
+          </div>
+          <div class="version-card__body">
+            An ESP-32 with a VL53L1X Time-of-Flight sensor detects the student's
+            finger as it moves across a Braille line. A line blocker guides placement;
+            a start button initiates the session. Speed is measured per full line and
+            uploaded to Google Sheets.
+          </div>
+          <div class="version-card__footer">
+            <div class="tag-row" style="margin-top:0;">
+              <span class="tag tag--blue">ESP-32</span>
+              <span class="tag tag--blue">ToF Sensor</span>
+              <span class="tag tag--amber">Line Blocker</span>
+            </div>
+            <span style="color:var(--color-primary); font-weight:600; font-size:0.875rem; white-space:nowrap;">See V1 &#8594;</span>
+          </div>
+        </a>
+
+        <!-- V2 -->
+        <a href="v2.html" class="version-card reveal" style="text-decoration:none; color:inherit; transition-delay:0.1s;">
+          <img src="assets/device2_photo.png" alt="Version 2 device photo" class="version-card__img" />
+          <div class="version-card__header">
+            <div class="version-card__num">Version 2</div>
+            <div class="version-card__title">Refined Design</div>
+          </div>
+          <div class="version-card__body">
+            After testing at the California School for the Blind, the line blocker
+            was removed to preserve natural reading posture. A pressure/linear
+            potentiometer sensor detects end-of-line taps; a non-slip mat keeps
+            the paper stable throughout the session.
+          </div>
+          <div class="version-card__footer">
+            <div class="tag-row" style="margin-top:0;">
+              <span class="tag tag--blue">Pressure Sensor</span>
+              <span class="tag tag--green">Non-Slip Mat</span>
+            </div>
+            <span style="color:var(--color-primary); font-weight:600; font-size:0.875rem; white-space:nowrap;">See V2 &#8594;</span>
+          </div>
+        </a>
+
+        <!-- V3 -->
+        <a href="v3.html" class="version-card reveal" style="text-decoration:none; color:inherit; transition-delay:0.2s;">
+          <div style="height:200px; background:linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); display:flex; align-items:center; justify-content:center;">
+            <span style="font-size:4rem;">&#128247;</span>
+          </div>
+          <div class="version-card__header">
+            <div class="version-card__num">Version 3</div>
+            <div class="version-card__title">The App</div>
+          </div>
+          <div class="version-card__body">
+            A phone camera app that captures reading in real time and overlays a
+            color-coded speed heat map on the Braille text. Detects regressions,
+            provides character-level feedback, and gives teachers the most
+            comprehensive reading data yet.
+          </div>
+          <div class="version-card__footer">
+            <div class="tag-row" style="margin-top:0;">
+              <span class="tag tag--green">Heat Map</span>
+              <span class="tag tag--amber">Regression Detection</span>
+            </div>
+            <span style="color:var(--color-primary); font-weight:600; font-size:0.875rem; white-space:nowrap;">See V3 &#8594;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Design Evolution Timeline ───────────────────── -->
+  <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">Design Process</p>
+      <h2 class="section-title">How InSight evolved</h2>
+
+      <div class="two-col" style="align-items:start;">
+        <div class="timeline reveal">
+          <div class="timeline__item">
+            <div class="timeline__label">Version 1</div>
+            <div class="timeline__title">First prototype with ToF sensor</div>
+            <p class="timeline__body">
+              Built an ESP-32 device with a VL53L1X time-of-flight sensor and a
+              line blocker. A start button kicks off each session. Tested with
+              real students for the first time.
+            </p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__label">Student Testing</div>
+            <div class="timeline__title">California School for the Blind</div>
+            <p class="timeline__body">
+              Testing V1 with students revealed the line blocker disrupted natural
+              reading posture. Paper movement was also identified as an issue.
+            </p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__label">Version 2</div>
+            <div class="timeline__title">Redesigned around student feedback</div>
+            <p class="timeline__body">
+              Removed the line blocker. Switched to a pressure/linear potentiometer
+              for end-of-line detection. Added a non-slip mat. Students could
+              read more naturally without any physical guide.
+            </p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__label">Student Testing 2</div>
+            <p class="timeline__title">
+              California School for the Blind 
+              and Palo Alto Unified School District</p>
+            <p class="timeline__body">
+              Testing V2 with students revealed that the line by line speed 
+              metric was valuable, but didn't capture the full reading experience. 
+              Hardware also couldn't capture regressions reliably.
+            </p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__label">Version 3</div>
+            <div class="timeline__title">Moved to software — phone camera app</div>
+            <p class="timeline__body">
+              Switched from hardware to a phone camera app. Color-coded heat maps,
+              regression detection, and character-level feedback give teachers an
+              entirely new level of reading insight.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="callout" style="text-align:left; padding:36px;">
+            <div class="callout__icon" style="text-align:left; margin-bottom:14px;">&#127919;</div>
+            <h3 style="font-size:1.15rem; font-weight:700; color:#fff; margin-bottom:12px;">The constant across all versions</h3>
+            <p style="color:rgba(255,255,255,0.85); font-size:0.95rem; line-height:1.65; margin-bottom:0;">
+              Every version of InSight shares the same goal: give teachers
+              real, actionable data about how their students read Braille —
+              without disrupting the student's natural tactile experience on
+              paper Braille.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ──────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="callout reveal">
+        <div class="callout__icon">&#128218;</div>
+        <h2 class="callout__title">Understand the problem behind InSight</h2>
+        <p class="callout__body">
+          Learn why no existing tool addresses this need, what the research says,
+          and what motivated this project from the start.
+        </p>
+        <a href="about.html" class="btn btn-accent">Read the About Page</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">In<span>Sight</span></div>
+        <p class="footer__tagline">An Accessible Device to Enhance Braille Reading Comprehension</p>
+        <p class="footer__contact">
+          Questions? <a href="mailto:contact@example.com">contact@example.com</a>
+        </p>
+      </div>
+      <div class="footer__meta">
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="project.html">The Project</a>
+          <a href="v1.html">V1</a>
+          <a href="v2.html">V2</a>
+          <a href="v3.html">V3</a>
+        </nav>
+        <p>Created by Meghana &copy; 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

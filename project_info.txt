@@ -1,0 +1,15 @@
+Motivation: While tutoring a visually impaired 7th grade student, I noticed her struggle to comprehend what she was reading in Braille. Her teachers explained the challenges in figuring out how to improve her reading experience. I wanted to figure out a way to help.
+Background Research: Fluency in Braille is Essential to Learning → defined by the combination of reading speed, accuracy, and expression, fluency is fundamental for effective understanding of text (Stanfa & Johnson, 2015)
+Tactile Sensitivity Impacts Fluency → variance in fingertips textural and tactile perception can impede Braille reading fluency (Martiniello & Wittich, 2022)
+Lack of Fluency Measurement Tools → Braille lacks a direct equivalent to tools that help evaluate visual reading fluency, making it difficult for teachers to evaluate the nuanced aspects of tactile reading (Gonzalez-Garcia, 2017)
+Cost Limitations of Existing Technologies → While tools like refreshable Braille displays and screen readers exist, they are often expensive, and move the student away from the optimal experience of paper Braille. (Wang et al., 2025a&b)
+CONCLUSION: There is currently no low-cost device capable of measuring Braille reading fluency while preserving natural tactile interaction with paper Braille.
+Design Process:
+Used OnShape CAD software to design [Fig 1]
+Repeatedly iterated frame to accommodate all paper sizes
+Designed enclosure to house and protect electronics
+Wired ESP32 microcontroller to battery pack and potentiometer sensor [Fig 2]
+Used Arduino IDE to code, using ESP Async Web Server Library
+Code takes the time difference between readings, calculates average line speeds (using the standard convention of 40 characters per line), converts into a .csv file and uploads file to hotspot webpage
+Google Sheets
+Coded Apps Script code to take CSV data and auto format into graphs for teachers

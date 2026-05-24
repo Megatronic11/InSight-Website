@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About: InSight</title>
+  <meta name="description" content="Learn about the problem InSight was built to solve: the Braille fluency gap facing visually impaired students." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navbar ──────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">In<span>Sight</span></a>
+      <ul class="navbar__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="project.html" class="nav-dropdown__toggle">The Project <span class="nav-dropdown__arrow">&#9660;</span></a>
+          <ul class="nav-dropdown__menu" role="list">
+            <li><a href="project.html">Overview</a></li>
+            <li><a href="v1.html">Version 1</a></li>
+            <li><a href="v2.html">Version 2</a></li>
+            <li><a href="v3.html">Version 3</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ───────────────────────────────────── -->
+  <header class="page-hero">
+    <div class="container">
+      <p class="page-hero__label">The Problem &amp; Motivation</p>
+      <h1 class="page-hero__title">Why InSight Exists</h1>
+      <p class="page-hero__subtitle">
+        There is currently no low-cost device capable of measuring Braille reading
+        fluency while preserving natural tactile interaction with paper Braille.
+      </p>
+    </div>
+  </header>
+
+  <!-- ── Origin Story ────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="section-label">The Spark</p>
+          <h2 class="section-title">A student struggling. A problem worth solving.</h2>
+          <div class="divider"></div>
+          <p style="color:var(--color-text-secondary); margin-bottom:18px;">
+            While tutoring a visually impaired 7th grade student, I noticed her
+            struggle to comprehend what she was reading in Braille.
+          </p>
+          <p style="color:var(--color-text-secondary);">
+            Her teachers explained the challenges in figuring out how to improve
+            her reading experience. I wanted to figure out a way to help.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <div class="quote-block">
+            <p>
+              "Fluency in Braille is defined by the combination of reading speed,
+              accuracy, and expression, and it is fundamental for effective
+              understanding of text."
+            </p>
+            <cite>Stanfa &amp; Johnson, 2015</cite>
+          </div>
+          <div class="quote-block">
+            <p>
+              "Variance in fingertip textural and tactile perception can impede
+              Braille reading fluency."
+            </p>
+            <cite>Martiniello &amp; Wittich, 2022</cite>
+          </div>
+          <div class="quote-block">
+            <p>
+              "Braille lacks a direct equivalent to tools that help evaluate
+              visual reading fluency, making it difficult for teachers to evaluate
+              the nuanced aspects of tactile reading."
+            </p>
+            <cite>Gonzalez-Garcia, 2017</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Research Findings ────────────────────────────── -->
+  <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">Background Research</p>
+      <h2 class="section-title">What the research tells us</h2>
+      <p class="section-subtitle">
+        A review of existing literature revealed four compounding challenges
+        that leave Braille readers underserved.
+      </p>
+
+      <div class="findings-grid">
+        <div class="finding reveal">
+          <div class="finding__heading">Fluency is Essential to Learning</div>
+          <p class="finding__body">
+            Defined by the combination of reading speed, accuracy, and expression,
+            fluency is fundamental for effective understanding of text.
+          </p>
+          <span class="finding__cite">Stanfa &amp; Johnson, 2015</span>
+        </div>
+
+        <div class="finding reveal" style="transition-delay:0.1s">
+          <div class="finding__heading">Tactile Sensitivity Impacts Fluency</div>
+          <p class="finding__body">
+            Variance in fingertip textural and tactile perception can impede
+            Braille reading fluency.
+          </p>
+          <span class="finding__cite">Martiniello &amp; Wittich, 2022</span>
+        </div>
+
+        <div class="finding reveal" style="transition-delay:0.2s">
+          <div class="finding__heading">No Fluency Measurement Tools</div>
+          <p class="finding__body">
+            Braille lacks a direct equivalent to tools that help evaluate visual
+            reading fluency, making it difficult for teachers to evaluate the
+            nuanced aspects of tactile reading.
+          </p>
+          <span class="finding__cite">Gonzalez-Garcia, 2017</span>
+        </div>
+
+        <div class="finding reveal" style="transition-delay:0.3s">
+          <div class="finding__heading">Existing Technology Is Cost-Prohibitive</div>
+          <p class="finding__body">
+            Tools like refreshable Braille displays and screen readers exist, but
+            they are often expensive, and move students away from the optimal
+            experience of paper Braille.
+          </p>
+          <span class="finding__cite">Wang et al., 2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Conclusion ───────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">The Gap</p>
+      <h2 class="section-title">There is currently no solution.</h2>
+      <p style="color:var(--color-text-secondary); max-width:680px; margin-bottom:40px;">
+        After reviewing the research, one conclusion emerged clearly: <strong>there is
+        currently no low-cost device capable of measuring Braille reading fluency while
+        preserving natural tactile interaction with paper Braille.</strong>
+      </p>
+      <div class="callout reveal">
+        <div class="callout__icon">&#128161;</div>
+        <h2 class="callout__title">InSight fills the gap.</h2>
+        <p class="callout__body">
+          A low-cost, paper-compatible fluency tracker that gives teachers
+          real data, without disrupting the student's natural reading experience.
+        </p>
+        <a href="project.html" class="btn btn-accent">See How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Creator ──────────────────────────────────────── -->
+  <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">About the Creator</p>
+      <h2 class="section-title">Made by Meghana</h2>
+      <div class="divider"></div>
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <p style="color:var(--color-text-secondary); margin-bottom:18px;">
+            The InSight project began while tutoring a visually impaired 7th grade
+            student. After noticing her struggle to comprehend what she was reading
+            in Braille, and hearing her teachers explain the challenges in improving
+            her reading experience, Meghana wanted to figure out a way to help.
+          </p>
+          <p style="color:var(--color-text-secondary);">
+            The project spans hardware design (CAD modeling in OnShape, wiring an
+            ESP32 microcontroller to a battery pack and potentiometer sensor),
+            firmware programming (Arduino IDE, ESP Async Web Server Library), and
+            data automation (CSV upload to a hotspot webpage, Apps Script graphs
+            in Google Sheets).
+          </p>
+        </div>
+
+        <div class="reveal">
+          <!-- Placeholder: creator photo -->
+          <div class="placeholder placeholder--image">
+            <div class="placeholder__icon">&#128247;</div>
+            <div class="placeholder__label">[ Photo coming soon ]</div>
+            <div class="placeholder__hint">Creator portrait or project photo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">In<span>Sight</span></div>
+        <p class="footer__tagline">An Accessible Device to Enhance Braille Reading Comprehension</p>
+        <p class="footer__contact">
+          Questions? <a href="mailto:contact@example.com">contact@example.com</a>
+        </p>
+      </div>
+      <div class="footer__meta">
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="project.html">The Project</a>
+          <a href="v1.html">V1</a>
+          <a href="v2.html">V2</a>
+          <a href="v3.html">V3</a>
+        </nav>
+        <p>Created by Meghana &copy; 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

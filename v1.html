@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Version 1: InSight</title>
+  <meta name="description" content="InSight V1 — the original line reader device using an ESP-32 and VL53L1X Time-of-Flight sensor to measure Braille reading speed line by line." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .anchor {
+      scroll-margin-top: calc(var(--nav-height) + 16px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navbar ──────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">In<span>Sight</span></a>
+      <ul class="navbar__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="project.html" class="nav-dropdown__toggle">The Project <span class="nav-dropdown__arrow">&#9660;</span></a>
+          <ul class="nav-dropdown__menu" role="list">
+            <li><a href="project.html">Overview</a></li>
+            <li><a href="v1.html">Version 1</a></li>
+            <li><a href="v2.html">Version 2</a></li>
+            <li><a href="v3.html">Version 3</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ───────────────────────────────────── -->
+  <header class="page-hero">
+    <div class="container">
+      <div class="version-badge version-badge--v1">Version 1</div>
+      <h1 class="page-hero__title">The Line Reader Device</h1>
+      <p class="page-hero__subtitle">
+        The first prototype: an ESP-32 powered device with a Time-of-Flight sensor
+        that measures per-line reading speed for students learning Braille.
+      </p>
+      <nav class="version-nav" aria-label="Version navigation">
+        <span class="version-nav__item active">V1 — Line Reader</span>
+        <a href="v2.html" class="version-nav__item">V2 — Refined Design</a>
+        <a href="v3.html" class="version-nav__item">V3 — The App</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Overview ────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Overview</p>
+      <h2 class="section-title">A hardware device for line-by-line tracking</h2>
+      <div class="divider"></div>
+
+      <div class="two-col">
+        <div>
+          <p style="color:var(--color-text-secondary); margin-bottom:18px;">
+            Version 1 is a physical device that a student places at the start of each
+            Braille line. A <strong>line blocker</strong> guides finger placement during
+            reading, and a <strong>start button</strong> initiates the timing session.
+          </p>
+          <p style="color:var(--color-text-secondary); margin-bottom:24px;">
+            An <strong>ESP-32 microcontroller</strong> paired with a <strong>VL53L1X
+            Time-of-Flight sensor</strong> moves with the line reader and detects when
+            the student's finger is within a set proximity threshold — marking the
+            completion of each line. Speed is measured over the whole line (e.g.,
+            Line 1 read in X seconds) and uploaded wirelessly to Google Sheets.
+          </p>
+          <div class="tag-row">
+            <span class="tag tag--blue">ESP-32</span>
+            <span class="tag tag--blue">VL53L1X ToF Sensor</span>
+            <span class="tag tag--amber">Line Blocker</span>
+            <span class="tag tag--amber">Start Button</span>
+            <span class="tag tag--green">Google Sheets</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <img
+            src="assets/V1_Design.png"
+            alt="Version 1 design diagram"
+            style="border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); width:100%;"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ────────────────────────────────── -->
+  <section class="section section--alt anchor" id="how-it-works">
+    <div class="container">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">Step-by-step reading session</h2>
+      <p class="section-subtitle">
+        V1 captures per-line timing through proximity detection — the sensor moves
+        with the line reader so the student reads uninterrupted.
+      </p>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step__number">1</div>
+          <div class="step__content">
+            <div class="step__title">Place Fingers in the Line Blocker</div>
+            <div class="step__body">
+              The student positions their fingers in the line blocker at the start
+              of the first Braille line. This guide ensures the VL53L1X sensor is
+              properly aligned with the reading finger throughout the session.
+            </div>
+          </div>
+        </div>
+        <div class="step reveal" style="transition-delay:0.05s;">
+          <div class="step__number">2</div>
+          <div class="step__content">
+            <div class="step__title">Press the Start Button</div>
+            <div class="step__body">
+              The student or teacher presses the start button to begin the session.
+              The ESP-32 starts listening for proximity events from the VL53L1X sensor.
+            </div>
+          </div>
+        </div>
+        <div class="step reveal" style="transition-delay:0.10s;">
+          <div class="step__number">3</div>
+          <div class="step__content">
+            <div class="step__title">Sensor Tracks the Reading Finger</div>
+            <div class="step__body">
+              The Time-of-Flight sensor moves along with the line reader as the
+              student reads. It detects when the finger is within a set distance
+              threshold, capturing the moment each line is completed.
+            </div>
+          </div>
+        </div>
+        <div class="step reveal" style="transition-delay:0.15s;">
+          <div class="step__number">4</div>
+          <div class="step__content">
+            <div class="step__title">Line Speed Calculated</div>
+            <div class="step__body">
+              The ESP-32 computes the elapsed time per line and converts it to
+              reading speed using the standard 40-characters-per-line convention.
+              Each line becomes a single data point (e.g., Line 1: 18 seconds,
+              Line 2: 22 seconds).
+            </div>
+          </div>
+        </div>
+        <div class="step reveal" style="transition-delay:0.20s;">
+          <div class="step__number">5</div>
+          <div class="step__content">
+            <div class="step__title">Data Uploaded to Google Sheets</div>
+            <div class="step__body">
+              After the session, the ESP-32 uploads a CSV file to a hotspot webpage
+              using the ESP Async Web Server Library. A Google Apps Script
+              auto-formats the data into fluency charts for teachers to review.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Hardware ─────────────────────────────────────── -->
+  <section class="section anchor" id="hardware">
+    <div class="container">
+      <p class="section-label">Hardware</p>
+      <h2 class="section-title">Components &amp; Design</h2>
+
+      <div class="two-col">
+        <div>
+          <div style="overflow-x:auto; border-radius:var(--radius-md); border:1px solid var(--color-border);" class="reveal">
+            <table class="spec-table">
+              <thead>
+                <tr><th>Component</th><th>Details</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Microcontroller</td><td>ESP-32</td></tr>
+                <tr><td>Sensor</td><td>VL53L1X Time-of-Flight — proximity detection</td></tr>
+                <tr><td>User Input</td><td>Physical start button to begin session</td></tr>
+                <tr><td>Reading Aid</td><td>Line blocker for consistent finger placement</td></tr>
+                <tr><td>Frame</td><td>3D-printed in OnShape CAD; fits all standard paper sizes</td></tr>
+                <tr><td>Power</td><td>Battery pack</td></tr>
+                <tr><td>Speed Metric</td><td>Per-line time, converted via 40 chars/line convention</td></tr>
+                <tr><td>Data Output</td><td>CSV &#8594; Wi-Fi hotspot &#8594; Google Sheets</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="pdf-wrapper">
+            <iframe
+              src="assets/V1_Image_Diagram.pdf"
+              title="Version 1 image diagram"
+            ></iframe>
+          </div>
+          <p style="font-size:0.825rem; color:var(--color-text-muted); margin-top:10px; text-align:center;">
+            <a href="assets/V1_Image_Diagram.pdf" target="_blank" rel="noopener">
+              Open diagram in new tab &#8599;
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Key Learnings ───────────────────────────────── -->
+  <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">What We Learned</p>
+      <h2 class="section-title">Insights that shaped Version 2</h2>
+
+      <div class="insight-box reveal">
+        <div class="insight-box__label">Student Testing — California School for the Blind</div>
+        <p class="insight-box__body">
+          After testing V1 with students at the California School for the Blind, we
+          found that the <strong>line blocker disrupted natural reading position</strong>.
+          Braille readers rely on consistent tactile feedback and unobstructed hand
+          movement — any physical guide that altered their natural posture introduced
+          errors and slowed reading. The line blocker was removed entirely in Version 2.
+        </p>
+      </div>
+
+      <div class="insight-box reveal" style="transition-delay:0.1s;">
+        <div class="insight-box__label">Paper Movement</div>
+        <p class="insight-box__body">
+          During sessions, the Braille paper would shift on the surface, introducing
+          timing inconsistencies. Version 2 addressed this with a non-slip mat to
+          keep the page stationary throughout the reading session.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Version Pagination ──────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="version-pagination">
+        <a href="project.html" class="version-pagination__item">
+          <span class="version-pagination__label">&#8592; Back to</span>
+          <span class="version-pagination__title">Project Overview</span>
+        </a>
+        <a href="v2.html" class="version-pagination__item version-pagination__item--next">
+          <span class="version-pagination__label">Next Version &#8594;</span>
+          <span class="version-pagination__title">V2 — Refined Design</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">In<span>Sight</span></div>
+        <p class="footer__tagline">An Accessible Device to Enhance Braille Reading Comprehension</p>
+        <p class="footer__contact">
+          Questions? <a href="mailto:contact@example.com">contact@example.com</a>
+        </p>
+      </div>
+      <div class="footer__meta">
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="project.html">The Project</a>
+          <a href="v1.html">V1</a>
+          <a href="v2.html">V2</a>
+          <a href="v3.html">V3</a>
+        </nav>
+        <p>Created by Meghana &copy; 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Version 3: InSight App</title>
+  <meta name="description" content="InSight V3 — a phone camera app with a color-coded speed heat map, regression detection, and character-level Braille reading analysis." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .anchor {
+      scroll-margin-top: calc(var(--nav-height) + 16px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navbar ──────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">In<span>Sight</span></a>
+      <ul class="navbar__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="project.html" class="nav-dropdown__toggle">The Project <span class="nav-dropdown__arrow">&#9660;</span></a>
+          <ul class="nav-dropdown__menu" role="list">
+            <li><a href="project.html">Overview</a></li>
+            <li><a href="v1.html">Version 1</a></li>
+            <li><a href="v2.html">Version 2</a></li>
+            <li><a href="v3.html">Version 3</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ───────────────────────────────────── -->
+  <header class="page-hero">
+    <div class="container">
+      <div class="version-badge version-badge--v3">Version 3</div>
+      <h1 class="page-hero__title">The App</h1>
+      <p class="page-hero__subtitle">
+        A phone camera app that overlays a color-coded speed heat map on the
+        student's Braille text — showing exactly where they slow down, and
+        flagging every regression.
+      </p>
+      <nav class="version-nav" aria-label="Version navigation">
+        <a href="v1.html" class="version-nav__item">V1 — Line Reader</a>
+        <a href="v2.html" class="version-nav__item">V2 — Refined Design</a>
+        <span class="version-nav__item active">V3 — The App</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Overview ────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Overview</p>
+      <h2 class="section-title">From hardware to software</h2>
+      <div class="divider"></div>
+
+      <div class="two-col">
+        <div>
+          <p style="color:var(--color-text-secondary); margin-bottom:18px;">
+            Version 3 is a complete rethink: instead of a physical device, it runs
+            entirely as an <strong>app on the student's phone camera</strong>. By
+            tracking reading in real time through computer vision, it captures
+            far more data than any hardware approach could.
+          </p>
+          <p style="color:var(--color-text-secondary); margin-bottom:24px;">
+            The result is <strong>character-by-character and section-by-section
+            feedback</strong> — displayed as a color-coded speed heat map overlaid
+            directly onto an image of the text. Teachers see not just how fast a
+            student reads a line, but exactly which words or sections need targeted
+            instruction.
+          </p>
+          <div class="tag-row">
+            <span class="tag tag--blue">Phone Camera</span>
+            <span class="tag tag--blue">Computer Vision</span>
+            <span class="tag tag--green">Speed Heat Map</span>
+            <span class="tag tag--green">Regression Detection</span>
+            <span class="tag tag--amber">Character-Level Analysis</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="video-wrapper">
+            <video controls>
+              <source src="assets/App_Demo.MP4" type="video/mp4" />
+              Your browser does not support embedded video.
+              <a href="assets/App_Demo.MP4">Download the demo video</a>
+            </video>
+          </div>
+          <p style="font-size:0.825rem; color:var(--color-text-muted); margin-top:10px; text-align:center;">
+            App demonstration video
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Key Features ─────────────────────────────────── -->
+  <section class="section section--alt anchor" id="features">
+    <div class="container">
+      <p class="section-label">Key Features</p>
+      <h2 class="section-title">What V3 can do that V1 &amp; V2 couldn't</h2>
+      <p class="section-subtitle">
+        The shift to software unlocks a whole new class of insight — moving from
+        line-level timing to a full picture of how a student reads.
+      </p>
+
+      <div class="feature-list">
+        <div class="feature-item reveal">
+          <div class="feature-item__icon">&#127777;</div>
+          <div>
+            <div class="feature-item__title">Color-Coded Speed Heat Map</div>
+            <p class="feature-item__body">
+              A live overlay on the text image shows reading speed at the character,
+              word, or line level. Slow sections appear in red; faster sections in
+              green — giving an instant visual picture of the reading session.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item reveal" style="transition-delay:0.1s;">
+          <div class="feature-item__icon">&#8617;</div>
+          <div>
+            <div class="feature-item__title">Regression Detection</div>
+            <p class="feature-item__body">
+              The app flags when a student re-reads a word or section — a key
+              comprehension signal. Regressions are marked directly on the heat
+              map so teachers can spot recurring patterns at a glance.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item reveal" style="transition-delay:0.2s;">
+          <div class="feature-item__icon">&#128269;</div>
+          <div>
+            <div class="feature-item__title">Character-Level Granularity</div>
+            <p class="feature-item__body">
+              Unlike V1 and V2, which only captured whole-line times, V3 tracks
+              reading at the character or word level — revealing micro-level
+              patterns that line averages can't show.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item reveal" style="transition-delay:0.3s;">
+          <div class="feature-item__icon">&#128200;</div>
+          <div>
+            <div class="feature-item__title">Line-by-Line Speed Summary</div>
+            <p class="feature-item__body">
+              Teachers still get the familiar line-by-line reading speed output
+              from V1 and V2 — but now with section and character detail layered
+              on top for a complete picture.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item reveal" style="transition-delay:0.4s;">
+          <div class="feature-item__icon">&#127891;</div>
+          <div>
+            <div class="feature-item__title">Targeted Instruction</div>
+            <p class="feature-item__body">
+              By identifying exactly which sections a student struggles with,
+              teachers can focus instruction where it matters most rather than
+              relying on overall speed averages alone.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item reveal" style="transition-delay:0.5s;">
+          <div class="feature-item__icon">&#128247;</div>
+          <div>
+            <div class="feature-item__title">Phone Camera Only</div>
+            <p class="feature-item__body">
+              No physical hardware required. V3 runs on a standard smartphone,
+              making it accessible to any classroom without specialized equipment
+              or 3D-printed parts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── For Teachers ──────────────────────────────────── -->
+  <section class="section anchor" id="teachers">
+    <div class="container">
+      <p class="section-label">For Teachers</p>
+      <h2 class="section-title">A high-fidelity reading comprehension assessment</h2>
+
+      <div class="two-col">
+        <div>
+          <p style="color:var(--color-text-secondary); margin-bottom:18px;">
+            Think of V3 as a high-fidelity Braille reading level test — similar in
+            depth to the assessments used for sighted students, but designed
+            specifically for tactile readers. A teacher reviewing a V3 session can see:
+          </p>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step__number">1</div>
+              <div class="step__content">
+                <div class="step__title">Line-by-Line Reading Speeds</div>
+                <div class="step__body">
+                  The same fluency metric as V1 and V2 — how many seconds each
+                  line took, and the student's average reading speed across the
+                  full passage.
+                </div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__number">2</div>
+              <div class="step__content">
+                <div class="step__title">Heat Map Overlay on the Text</div>
+                <div class="step__body">
+                  A color-coded view of the exact Braille text showing which
+                  words or characters took the longest — teachers can pinpoint
+                  specific cells or contractions causing difficulty.
+                </div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__number">3</div>
+              <div class="step__content">
+                <div class="step__title">Regression Markers</div>
+                <div class="step__body">
+                  Every re-read is flagged on the map. Patterns of regression —
+                  like repeatedly going back over a specific contraction — surface
+                  immediately and can inform the next lesson.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="callout" style="text-align:left; padding:36px;">
+            <div class="callout__icon" style="text-align:left; margin-bottom:14px;">&#128161;</div>
+            <h3 style="font-size:1.15rem; font-weight:700; color:#fff; margin-bottom:12px;">Why this matters</h3>
+            <p style="color:rgba(255,255,255,0.85); font-size:0.95rem; line-height:1.65; margin-bottom:0;">
+              For sighted readers, tools like DIBELS and AIMSweb give teachers
+              granular reading data. Braille readers haven't had an equivalent —
+              until now. V3 brings the same level of diagnostic insight to
+              Braille instruction, enabling targeted, data-driven teaching.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Version Pagination ──────────────────────────── -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="version-pagination">
+        <a href="v2.html" class="version-pagination__item">
+          <span class="version-pagination__label">&#8592; Previous</span>
+          <span class="version-pagination__title">V2 — Refined Design</span>
+        </a>
+        <a href="project.html" class="version-pagination__item version-pagination__item--next">
+          <span class="version-pagination__label">Back to &#8594;</span>
+          <span class="version-pagination__title">Project Overview</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">In<span>Sight</span></div>
+        <p class="footer__tagline">An Accessible Device to Enhance Braille Reading Comprehension</p>
+        <p class="footer__contact">
+          Questions? <a href="mailto:contact@example.com">contact@example.com</a>
+        </p>
+      </div>
+      <div class="footer__meta">
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="project.html">The Project</a>
+          <a href="v1.html">V1</a>
+          <a href="v2.html">V2</a>
+          <a href="v3.html">V3</a>
+        </nav>
+        <p>Created by Meghana &copy; 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
